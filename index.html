@@ -1,339 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flower Shop</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      color: #333;
-      background-color: #fdfdfd;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    nav {
-      background-color: #006400;
-      padding: 1em;
-    }
-    nav a {
-      color: #ffffff;
-      margin-right: 1em;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:focus, nav a:hover {
-      text-decoration: underline;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      color: #004d00;
-      margin-top: 1em;
-      padding: 0 1em;
-    }
-    p {
-      padding: 0 1em;
-      margin-bottom: 1em;
-    }
-    form {
-      background-color: #e6ffe6;
-      padding: 1em;
-      margin: 1em;
-      border: 1px solid #b3ffb3;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5em;
-    }
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 0.5em;
-      margin-bottom: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin-right: 0.5em;
-    }
-    fieldset {
-      border: none;
-      margin: 0;
-      padding: 0;
-      margin-bottom: 1em;
-    }
-    legend {
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    button {
-      background-color: #004d00;
-      color: #fff;
-      border: none;
-      padding: 0.7em 1.5em;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:focus, button:hover {
-      background-color: #006400;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1em auto;
-    }
-  </style>
-</head>
-<body>
-  <nav aria-label="Main Navigation">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop - Accessible Single Page Application</title>
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <h1 id="home">Welcome to the Flower Shop</h1>
-  <p>
-    Sentence 1: Welcome to our vibrant flower shop that brings nature closer to you. 
-    Sentence 2: We offer a wide array of freshly cut blooms to brighten your day. 
-    Sentence 3: Our shop is a haven for flower enthusiasts and casual buyers alike. 
-    Sentence 4: Every bouquet is crafted with passion and attention to detail. 
-    Sentence 5: Our commitment to beauty and quality is evident in every arrangement. 
-    Sentence 6: We strive to make each visit a delightful and inspiring experience. 
-    Sentence 7: The ambiance of our shop reflects our love for nature and art. 
-    Sentence 8: Our friendly staff is always ready to assist you with care. 
-    Sentence 9: We value each customer and work to exceed your expectations. 
-    Sentence 10: Step inside and let the fragrance and colors rejuvenate your spirit.
-  </p>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #fdfdfd;
+        color: #222;
+        padding: 1em;
+      }
 
-  <h2 id="about">Our Story</h2>
-  <p>
-    Sentence 1: Our story began with a deep passion for flowers and nature. 
-    Sentence 2: We opened our doors with a vision to share the beauty of blooms. 
-    Sentence 3: Each petal tells a story of love, care, and natural elegance. 
-    Sentence 4: Our journey is marked by dedication and continuous innovation. 
-    Sentence 5: The evolution of our shop reflects the timeless charm of nature. 
-    Sentence 6: We celebrate the art of floral design in every aspect of our work. 
-    Sentence 7: Our commitment to sustainability is interwoven with our business values. 
-    Sentence 8: We honor tradition while embracing modern trends in flower arrangements. 
-    Sentence 9: The passion of our founders is the driving force behind our success. 
-    Sentence 10: Today, our story inspires us to create captivating floral experiences.
-  </p>
+      /* Navigation styling */
+      header {
+        background-color: #2a7f62; /* dark enough for contrast */
+        color: #fff;
+        padding: 1em 0;
+      }
+      
+      nav {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+      }
+      
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      
+      nav a:focus, nav a:hover {
+        text-decoration: underline;
+      }
 
-  <h3>Passion for Blooms</h3>
-  <p>
-    Sentence 1: Our passion for blooms fuels every creative endeavor in our shop. 
-    Sentence 2: We source the freshest flowers to ensure optimal beauty and longevity. 
-    Sentence 3: Each bloom is carefully selected for its unique color and charm. 
-    Sentence 4: Our expert florists design arrangements that tell personal stories. 
-    Sentence 5: Every bouquet is a blend of nature’s artwork and human creativity. 
-    Sentence 6: We are dedicated to preserving the natural allure of each flower. 
-    Sentence 7: The spirit of passion is evident in the vibrant hues of our displays. 
-    Sentence 8: Our commitment elevates the art of floristry to new heights. 
-    Sentence 9: We believe that every flower has the power to inspire joy. 
-    Sentence 10: Join us in celebrating the timeless beauty of nature’s gifts.
-  </p>
+      /* Main content styling */
+      main {
+        max-width: 1000px;
+        margin: 2em auto;
+      }
+      
+      section {
+        margin-bottom: 2em;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
+      
+      p {
+        margin-bottom: 1em;
+        text-align: justify;
+      }
+      
+      /* Form styling */
+      form {
+        border: 2px solid #2a7f62;
+        padding: 1em;
+        background-color: #eef7f3;
+        max-width: 600px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+      }
+      
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        border: 1px solid #ccc;
+      }
+      
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 0.5em;
+      }
+      
+      input[type="submit"] {
+        background-color: #2a7f62;
+        color: #fff;
+        padding: 0.5em 1em;
+        border: none;
+        cursor: pointer;
+      }
+      
+      input[type="submit"]:focus,
+      input[type="submit"]:hover {
+        outline: 2px solid #1e5645;
+      }
+      
+      /* Figure styling for images */
+      figure {
+        margin: 1em 0;
+        text-align: center;
+      }
+      
+      figure img {
+        max-width: 100%;
+        height: auto;
+        border: 2px solid #ccc;
+      }
+      
+      figcaption {
+        margin-top: 0.5em;
+        font-style: italic;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header and Navigation -->
+    <header>
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <h4>Quality and Freshness</h4>
-  <p>
-    Sentence 1: We pride ourselves on offering unparalleled quality and freshness. 
-    Sentence 2: Our flowers are sourced from trusted growers with sustainable practices. 
-    Sentence 3: Every stem is meticulously cared for from the moment it is harvested. 
-    Sentence 4: The freshness of our blooms is maintained with expert handling. 
-    Sentence 5: We ensure that each arrangement exudes natural elegance and vibrancy. 
-    Sentence 6: Quality is the cornerstone of our floral creations and customer commitment. 
-    Sentence 7: Our rigorous standards guarantee visually stunning displays. 
-    Sentence 8: We continuously innovate to enhance the preservation of our flowers. 
-    Sentence 9: The vitality of our blooms reflects our promise of freshness. 
-    Sentence 10: Experience the difference where quality meets natural beauty.
-  </p>
-
-  <h5>Exquisite Arrangements</h5>
-  <p>
-    Sentence 1: Our exquisite arrangements are a masterpiece of nature fused with art. 
-    Sentence 2: Each design is thoughtfully composed to create a harmonious balance. 
-    Sentence 3: We blend colors and textures to evoke emotions and memories. 
-    Sentence 4: The artistry in our arrangements speaks to our dedication and skill. 
-    Sentence 5: Creativity and innovation are at the heart of every bouquet we craft. 
-    Sentence 6: Our designs transform everyday flowers into extraordinary displays. 
-    Sentence 7: Every arrangement is a testament to our passion for floral design. 
-    Sentence 8: We take pride in delivering visually captivating and elegant creations. 
-    Sentence 9: The beauty of each bouquet transcends its natural form. 
-    Sentence 10: Discover the art of refined floral decoration in every creation.
-  </p>
-
-  <h6>Seasonal Collections</h6>
-  <p>
-    Sentence 1: Our seasonal collections celebrate the unique charm of each time of year. 
-    Sentence 2: We curate blooms that capture the essence of every season. 
-    Sentence 3: The vibrant colors of spring awaken feelings of renewal and joy. 
-    Sentence 4: Summer’s collections burst with energy and sunlit warmth. 
-    Sentence 5: Autumn arrangements exude rich tones and cozy elegance. 
-    Sentence 6: Winter bouquets reflect serene beauty and festive spirit. 
-    Sentence 7: Each collection is designed to echo the mood of its season. 
-    Sentence 8: Our seasonal selections offer something special all year round. 
-    Sentence 9: We continuously update our collections to stay true to nature’s cycle. 
-    Sentence 10: Enjoy the ever-changing beauty of our flowers throughout the seasons.
-  </p>
-
-  <h1>Flower Care Tips</h1>
-  <p>
-    Sentence 1: Proper flower care is essential to maintain their lasting beauty. 
-    Sentence 2: We provide expert advice on watering and trimming your blooms. 
-    Sentence 3: Freshly cut flowers benefit from regular care and attention. 
-    Sentence 4: Ensuring optimal care prolongs the vibrancy of your arrangements. 
-    Sentence 5: Our tips are tailored to different types of flowers and designs. 
-    Sentence 6: Understanding the needs of each flower helps in preserving freshness. 
-    Sentence 7: Simple care routines can make a significant difference in longevity. 
-    Sentence 8: We share natural methods to enhance the life of your bouquets. 
-    Sentence 9: Follow our guidance to enjoy your flowers for a longer time. 
-    Sentence 10: Let our care tips be your companion in nurturing nature at home.
-  </p>
-
-  <h2>Our Commitment</h2>
-  <p>
-    Sentence 1: Our commitment to excellence is reflected in every service we offer. 
-    Sentence 2: We prioritize customer satisfaction and quality in our business. 
-    Sentence 3: Trust and reliability are the core pillars of our commitments. 
-    Sentence 4: Our team works diligently to exceed customer expectations every day. 
-    Sentence 5: We are dedicated to preserving the art and beauty of floristry. 
-    Sentence 6: Transparency and care guide our interactions with clients. 
-    Sentence 7: Our commitment extends to sustainable practices and community engagement. 
-    Sentence 8: We continuously strive to improve and innovate our services. 
-    Sentence 9: Each floral arrangement is a promise of quality and passion. 
-    Sentence 10: Experience our unwavering commitment in every visit.
-  </p>
-
-  <h3>Customer Testimonials</h3>
-  <p>
-    Sentence 1: Our customers speak highly of the creativity and quality of our work. 
-    Sentence 2: Testimonials reflect real experiences and heartfelt stories. 
-    Sentence 3: Each review underscores the personal touch in our service. 
-    Sentence 4: Clients appreciate the meticulous care in every bouquet we create. 
-    Sentence 5: Their positive feedback inspires us to continue excelling. 
-    Sentence 6: Our testimonials are a testament to our dedication and expertise. 
-    Sentence 7: Every comment drives us to enhance our craft and service. 
-    Sentence 8: Diverse stories from satisfied customers enrich our legacy. 
-    Sentence 9: We value each testimonial as a beacon of our success. 
-    Sentence 10: Discover the genuine experiences shared by our loyal patrons.
-  </p>
-
-  <h4>Innovative Designs</h4>
-  <p>
-    Sentence 1: Innovation is at the forefront of our floral design philosophy. 
-    Sentence 2: We experiment with new styles and creative combinations. 
-    Sentence 3: Our designers merge traditional techniques with modern trends. 
-    Sentence 4: Each innovative design reflects a fresh perspective on flowers. 
-    Sentence 5: We strive to push the boundaries of conventional floral art. 
-    Sentence 6: Our creations are a blend of artistic vision and natural charm. 
-    Sentence 7: Innovation results in beautiful and unexpected floral compositions. 
-    Sentence 8: We celebrate originality and creative expression in every piece. 
-    Sentence 9: Constant innovation keeps our offerings dynamic and inspiring. 
-    Sentence 10: Embrace the future of floristry through our groundbreaking designs.
-  </p>
-
-  <h5>Eco-Friendly Practices</h5>
-  <p>
-    Sentence 1: Our eco-friendly practices are integral to our business philosophy. 
-    Sentence 2: We source flowers from sustainable and ethical growers. 
-    Sentence 3: Recycling and waste reduction are key components of our operations. 
-    Sentence 4: We adopt green methods in flower preservation and display. 
-    Sentence 5: Environmental responsibility shapes our approach to floristry. 
-    Sentence 6: Every decision is made with the planet’s well-being in mind. 
-    Sentence 7: Our commitment to eco-friendly practices inspires trust and care. 
-    Sentence 8: We continually seek innovative ways to reduce our environmental impact. 
-    Sentence 9: Our methods ensure that beauty and sustainability go hand in hand. 
-    Sentence 10: Choose us for floral arrangements that respect nature.
-  </p>
-
-  <h6>Community Engagement</h6>
-  <p>
-    Sentence 1: Community engagement is at the heart of our business values. 
-    Sentence 2: We actively participate in local events and charitable efforts. 
-    Sentence 3: Our shop serves as a gathering spot for flower enthusiasts. 
-    Sentence 4: We collaborate with community organizations to promote arts and nature. 
-    Sentence 5: Every initiative strengthens the bond between us and our patrons. 
-    Sentence 6: We believe in giving back to the community that supports us. 
-    Sentence 7: Volunteer programs and workshops are part of our community commitment. 
-    Sentence 8: Our events inspire a shared passion for beauty and sustainability. 
-    Sentence 9: The local community’s involvement makes our work more meaningful. 
-    Sentence 10: Together, we celebrate the transformative power of nature.
-  </p>
-
-  <h1>Gift Ideas</h1>
-  <p>
-    Sentence 1: Our gift ideas are perfect for every occasion and celebration. 
-    Sentence 2: We offer thoughtfully curated bouquets that express heartfelt sentiments. 
-    Sentence 3: A gift from our shop is a token of love and appreciation. 
-    Sentence 4: Our creative arrangements are designed to brighten any special moment. 
-    Sentence 5: Personalization options allow you to tailor your gift to the recipient. 
-    Sentence 6: Each gift idea is crafted with the intent to convey genuine emotion. 
-    Sentence 7: From birthdays to anniversaries, our gifts speak volumes. 
-    Sentence 8: We provide inspiration for memorable moments with every bouquet. 
-    Sentence 9: Our varied selections ensure a perfect match for every taste. 
-    Sentence 10: Let our gift ideas be the starting point for unforgettable occasions.
-  </p>
-
-  <h2>Exclusive Services</h2>
-  <p>
-    Sentence 1: Our exclusive services offer a premium experience for our clientele. 
-    Sentence 2: We provide bespoke floral consultations to meet your unique needs. 
-    Sentence 3: Every service is designed to deliver personalized floral artistry. 
-    Sentence 4: Our expertise ensures that your vision is brought to life elegantly. 
-    Sentence 5: We offer expert guidance from selection through arrangement. 
-    Sentence 6: Our exclusive services cater to weddings, events, and corporate needs. 
-    Sentence 7: Each service emphasizes quality, creativity, and professionalism. 
-    Sentence 8: Our team works closely with you to curate perfect solutions. 
-    Sentence 9: Discover the advantage of a tailored, high-end floral service. 
-    Sentence 10: Experience exclusivity and refinement with every interaction.
-  </p>
-
-  <h3 id="contact">Contact for Special Orders</h3>
-  <p>
-    Sentence 1: Contact for special orders to explore unique floral creations. 
-    Sentence 2: We welcome inquiries for customized bouquets and events. 
-    Sentence 3: Our team is dedicated to addressing your special requests. 
-    Sentence 4: Personalized service is our promise for every special order. 
-    Sentence 5: We collaborate closely with you to understand your vision. 
-    Sentence 6: Detailed consultations ensure that every order reflects your style. 
-    Sentence 7: Our commitment is to deliver perfection in every arrangement. 
-    Sentence 8: Reach out to us through our convenient contact form. 
-    Sentence 9: Special orders are handled with care and artistic expertise. 
-    Sentence 10: Let us bring your floral dreams to life with our personalized approach.
-  </p>
-
-  <img src="tulips.png" alt="Bouquet of Tulips">
-  <img src="roses.png" alt="Bouquet of Roses">
-  <img src="lilies.png" alt="Bouquet of Lilies">
-
-  <form aria-label="Contact Form">
-    <label for="name">Your Name (required)</label>
-    <input type="text" id="name" name="name" required aria-required="true">
-    
-    <fieldset>
-      <legend>Delivery Options (choose one):</legend>
-      <label>
-        <input type="radio" name="delivery" value="standard" required aria-required="true"> Standard Delivery
-      </label>
-      <label>
-        <input type="radio" name="delivery" value="express"> Express Delivery
-      </label>
-    </fieldset>
-    
-    <label>
-      <input type="checkbox" id="terms" name="terms" required aria-required="true"> I agree to the terms and conditions
-    </label>
-    
-    <label for="flowerSelect">Favorite Flower</label>
-    <select id="flowerSelect" name="flowerSelect">
-      <option value="tulip">Tulip</option>
-      <option value="rose">Rose</option>
-      <option value="lily">Lily</option>
-    </select>
-    
-    <button type="submit">Submit Order</button>
-  </form>
-</body>
+    <main>
+      <!-- Home Section -->
+      <section id="home">
+        <!-- 3 Headings for Home Section -->
+        <h1>Welcome to Our Flower Shop</h1>
+        <p>
+          Our flower shop is a haven of color and life in the middle of the city. 
+          We welcome every visitor with open arms and refreshing floral aromas. 
+          Every arrangement is created with passion and attention to detail. 
+          The shop has been serving the community for over two decades with utmost dedication. 
+          Our talented florists ensure that every bouquet is a work of art. 
+          We pride ourselves on offering a variety of fresh and seasonal blooms. 
+          Our commitment to quality is evident in every petal and stem. 
+          We invite you to experience the beauty of nature through our flowers. 
+          Every customer’s smile tells a story of satisfaction and joy. 
+          This shop represents a blend of tradition, creativity, and natural beauty.
+        </p>
+        
+        <h2>Our Fresh Selection</h2>
+        <p>
+          Our selection changes with the seasons to bring only the freshest flowers. 
+          The assortment is curated from local growers with sustainable practices. 
+          We guarantee that quality and vibrancy are present in every bloom. 
+          Each variety is carefully examined before it finds a place in our shop. 
+          The hand-picked flowers reflect our passion for nature and art. 
+          We offer an extensive range that caters to both traditional and modern tastes. 
+          The arrangement styles are diverse, providing unique choices for every event. 
+          We value transparency and care in our selection process. 
+          Our fresh offerings ensure that your bouquet is as vibrant as your mood. 
+          The quality of our selection is our promise to every customer.
+        </p>
+        
+        <h3>Featured Bouquets</h3>
+        <p>
+          Our featured bouquets highlight the best of our floral artistry. 
+          Each bouquet is composed by expert florists in a creative and thoughtful manner. 
+          The arrangement is designed to evoke emotion and admiration. 
+          Every featured bouquet tells a unique story of color and fragrance. 
+          We use a mix of classic and contemporary styles to appeal to a wide audience. 
+          The compositions are balanced with complementary hues and textures. 
+          Customers have expressed delight after seeing the featured bouquets. 
+          Each arrangement is carefully wrapped and ready for gifting. 
+          The attention to detail in these bouquets is visible in every petal. 
+          Our featured bouquets set the standard for excellence in floral design.
+        </p>
+      </section>
+      
+      <!-- About Section -->
+      <section id="about">
+        <!-- 3 Headings for About Section -->
+        <h2>Our Story</h2>
+        <p>
+          Our story began from a small dream of sharing beauty and nature with everyone. 
+          Through the years, we have grown into a beloved community landmark. 
+          The shop has been a silent witness to many celebrations and heartfelt moments. 
+          Passion and dedication have been the driving forces behind our journey. 
+          Every flower that adorns our shop speaks of timeless traditions. 
+          We have overcome challenges with resilience and creativity. 
+          The evolution of our store is marked by an unwavering commitment to quality. 
+          Our history is interwoven with the stories of our loyal customers. 
+          We treasure the moments that built our reputation as a trusted flower shop. 
+          Our story continues to bloom with every new day and every happy customer.
+        </p>
+        
+        <h3>Our Mission</h3>
+        <p>
+          Our mission is to bring beauty and positivity through the language of flowers. 
+          We aspire to create memorable experiences for every customer who visits us. 
+          The shop aims to enrich lives by offering exquisite floral designs. 
+          Every bouquet is a celebration of nature’s bounty and a promise of elegance. 
+          We believe that flowers have the power to transform moods and settings. 
+          Our mission encompasses sustainability and ethical sourcing practices. 
+          We work closely with local growers to ensure freshness and quality. 
+          Our creative approach is driven by passion and innovation. 
+          We set high standards in every aspect of our service and product range. 
+          Our mission remains focused on delivering beauty, care, and delight.
+        </p>
+        
+        <h4>Our Team</h4>
+        <p>
+          Our team is a group of dedicated professionals with a love for flowers. 
+          Each member brings a unique perspective to the art of floral design. 
+          The teamwork and creativity define our esteemed establishment. 
+          Our florists are trained in the best practices of sustainable floral care. 
+          They work diligently to turn blossoms into expressions of joy. 
+          The staff’s passion is visible in every arrangement that leaves the shop. 
+          We prioritize professional development and innovative techniques. 
+          Every team member is committed to making the customer experience exceptional. 
+          The spirit of unity and respect for nature guides our everyday work. 
+          Our team is the heart and soul that makes our flower shop stand out.
+        </p>
+      </section>
+      
+      <!-- Services Section -->
+      <section id="services">
+        <!-- 4 Headings for Services Section -->
+        <h2>Our Services</h2>
+        <p>
+          We offer a wide range of services that are tailored to meet your floral needs. 
+          Our service menu has been designed with both quality and affordability in mind. 
+          Each service is delivered with precision and attention to detail. 
+          We take pride in offering personalized consultations for special events. 
+          The services are available for weddings, birthdays, anniversaries, and more. 
+          We continuously update our offerings to stay current with floral trends. 
+          Our team ensures that each service incorporates creativity and care. 
+          We welcome feedback and suggestions to improve our service quality. 
+          Our goal is to make every moment extraordinary with the help of flowers. 
+          The excellence of our services is reflected in our long-standing customer loyalty.
+        </p>
+        
+        <h3>Bouquet Arrangements</h3>
+        <p>
+          Our bouquet arrangements are designed to suit every taste and occasion. 
+          Each bouquet is thoughtfully assembled to highlight the beauty of the flowers. 
+          We offer both ready-made and custom-designed bouquet options. 
+          The arrangements can be tailored to specific color themes or event styles. 
+          Every bouquet tells a story of careful planning and artistic brilliance. 
+          Our florists utilize modern techniques combined with traditional methods. 
+          The designs vary from classic elegance to modern minimalism. 
+          Our bouquet arrangements have been celebrated for their originality and charm. 
+          We take pride in meeting customer needs with a blend of creativity and professionalism. 
+          Each arrangement is a testament to our commitment to quality and art.
+        </p>
+        
+        <h4>Flower Delivery</h4>
+        <p>
+          Our flower delivery service ensures that your blooms arrive fresh and on time. 
+          We offer reliable delivery options to cater to both local and extended areas. 
+          Timely delivery is our utmost priority, and it is managed with care. 
+          Every order is handled with the importance it deserves. 
+          We incorporate quality packaging to protect the delicate arrangements during transit. 
+          The delivery service aims to surpass customer expectations consistently. 
+          Our drivers are trained to handle each bouquet with the care of a cherished gift. 
+          We offer both scheduled and same-day delivery based on customer preference. 
+          The efficiency of our delivery system is a reflection of our service commitment. 
+          Our flower delivery ensures that every petal remains as vibrant as when arranged.
+        </p>
+        
+        <h5>Custom Orders</h5>
+        <p>
+          Our custom order service allows you to create a personalized floral experience. 
+          We invite you to share your vision so that we can bring it to life uniquely. 
+          Each custom order is treated as a special project requiring dedicated care. 
+          Our expert florists collaborate closely with you to capture every detail. 
+          The result is a bouquet or arrangement that reflects your style and sentiment. 
+          We ensure that every order is executed with precise timing and creative flair. 
+          Our custom orders are ideal for those looking for a touch of individuality. 
+          We appreciate the trust you place in us when sharing your ideas. 
+          Quality and personalization remain at the forefront of our custom services. 
+          Every custom order becomes an exclusive expression of floral art.
+        </p>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contact">
+        <!-- 5 Headings for Contact Section -->
+        <h2>Contact Us</h2>
+        <p>
+          We welcome you to reach out to our friendly team for any inquiries. 
+          Our contact avenues have been designed for ease of communication. 
+          You can call, email, or visit us in person at your convenience. 
+          Our staff is always ready to assist with any questions you might have. 
+          Every interaction is handled with warmth and professionalism. 
+          We strive to provide clear and timely responses to all requests. 
+          The information you share with us is treated with utmost confidentiality. 
+          Your satisfaction is our highest priority, and we work diligently to ensure it. 
+          Every comment or question is an opportunity for us to improve our service. 
+          Contacting us is the first step to experiencing the beauty of our flowers.
+        </p>
+        
+        <h3>Visit Our Store</h3>
+        <p>
+          We invite you to visit our store to experience our floral arrangements firsthand. 
+          The shop is located in a vibrant area easily accessible by public transit. 
+          You will find a welcoming atmosphere that celebrates nature and beauty. 
+          The store layout is designed with accessibility in mind for all visitors. 
+          We have ample parking and clear signage to guide you to our door. 
+          Inside, the space is organized to provide a comfortable browsing experience. 
+          Our staff is always available to guide you through our range of offerings. 
+          The visit will allow you to see the quality and creativity that defines our work. 
+          We ensure that every detail of the store enriches your sensory experience. 
+          A visit to our store is not just shopping; it is an immersive encounter with nature.
+        </p>
+        
+        <h4>Get In Touch</h4>
+        <p>
+          Getting in touch with us is simple and convenient for everyone. 
+          We have provided multiple channels to accommodate all preferences. 
+          Whether you choose phone, email, or the contact form, your message is important. 
+          Our communication system is designed to respond promptly to your needs. 
+          Every comment is considered valuable and is responded to with care. 
+          We have trained staff ready to assist with detailed and personalized answers. 
+          The process is inclusive and ensures that no query goes unanswered. 
+          Our dedication to customer service is evident in every interaction. 
+          We value direct communication because it helps us serve you better. 
+          Reaching out to us is the first step in creating a lasting relationship with our shop.
+        </p>
+        
+        <h5>Feedback</h5>
+        <p>
+          We encourage all customers to provide honest feedback about their experiences. 
+          Feedback is a vital tool that helps us continually improve our services. 
+          Every review, comment, or suggestion is taken seriously by our team. 
+          We have set up channels for both written and verbal feedback to meet diverse needs. 
+          Constructive criticism is welcomed and appreciated as a means for growth. 
+          We believe that ongoing improvement is a team effort that includes customer input. 
+          The feedback process is completely transparent and aimed at service enhancement. 
+          We thank our customers for their willingness to share their experiences. 
+          Every piece of feedback helps shape a better future for our flower shop. 
+          Sharing your thoughts with us is both encouraged and essential.
+        </p>
+        
+        <h6>Follow Us</h6>
+        <p>
+          Stay connected with us through our social media channels and newsletters. 
+          We share the latest updates, promotions, and behind-the-scenes looks at our work. 
+          Following us means you will be the first to know about new arrivals and special events. 
+          We strive to create engaging and informative posts for all our followers. 
+          Our online presence reflects the creativity and passion found in our physical store. 
+          Social media offers an interactive platform where you can join our community. 
+          We are committed to timely and respectful interaction with all our followers. 
+          Each post is crafted to inspire and share the lasting beauty of flowers. 
+          Following us is a way to become part of the ongoing story of our flower shop. 
+          We look forward to building a vibrant community together.
+        </p>
+        
+        <!-- Accessible Contact Form -->
+        <form action="#" method="post" aria-labelledby="contactFormTitle">
+          <h2 id="contactFormTitle">Contact Form</h2>
+          <label for="name">Your Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" required aria-required="true" placeholder="Enter your name">
+          
+          <fieldset>
+            <legend>Choose a Delivery Option:</legend>
+            <label>
+              <input type="radio" name="delivery" value="standard" required aria-required="true">
+              Standard Delivery
+            </label>
+            <label>
+              <input type="radio" name="delivery" value="express">
+              Express Delivery
+            </label>
+          </fieldset>
+          
+          <fieldset>
+            <legend>Subscribe to our newsletter:</legend>
+            <label>
+              <input type="checkbox" name="subscribe" value="yes">
+              Yes, sign me up for regular floral updates.
+            </label>
+          </fieldset>
+          
+          <label for="favoriteFlower">Select Your Favorite Flower:</label>
+          <select id="favoriteFlower" name="favoriteFlower">
+            <option value="tulips">Tulips</option>
+            <option value="roses">Roses</option>
+            <option value="lilies">Lilies</option>
+          </select>
+          
+          <input type="submit" value="Submit">
+        </form>
+        
+        <!-- Images Section -->
+        <figure>
+          <img src="tulips.png" alt="A vibrant bouquet of tulips arranged elegantly">
+          <figcaption>Tulips bouquet - lively and colorful.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="roses.png" alt="A classic bouquet of red roses symbolizing love">
+          <figcaption>Roses bouquet - timeless and passionate.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="lilies.png" alt="A graceful bouquet of lilies exuding elegance">
+          <figcaption>Lilies bouquet - refined and charming.</figcaption>
+        </figure>
+      </section>
+      
+    </main>
+  </body>
 </html>
